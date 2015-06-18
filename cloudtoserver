@@ -71,10 +71,11 @@ def main():
         while True:
             inp = raw_input("Continue? y/N: ")
             inp = inp.strip()
-            if inp == 'N':
-                return
             if inp.upper() == 'Y':
                 break
+            # We want this to be very paranoid. Exit on anything but 'y'.
+            else:
+                return
 
     # Now the normal flow of the application
     convert_to_server()
