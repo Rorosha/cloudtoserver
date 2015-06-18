@@ -28,17 +28,17 @@ import argparse
 VERSION = '0.2'
 
 def convert_to_server():
-    """This function tries to run a series of yum commands
-to convert a Fedora cloud instance into a Fedora server instance.
+    """This function tries to run a series of dnf commands
+    to convert a Fedora cloud instance into a Fedora server instance.
     """
     cmd = "dnf -y remove fedora-release-cloud"
     ret_code = os.system(cmd)
     if ret_code != 0:
-        print "There was issues while converting to Fedora Server. Please report the error"
+        print "There were issues while converting to Fedora Server. Please report the error."
         print "Use https://paste.fedoraproject.org for pasting the output from this command."
         return
 
-    # Now we now that fedora-release server is in the system
+    # Now we know that fedora-release server is in the system
     # We will try to pull down the rest of the packages. 
     cmd = 'dnf groupinstall "Fedora Server" -y'
     ret_code = os.system(cmd)
